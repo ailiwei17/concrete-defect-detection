@@ -1,0 +1,7 @@
+raw
+90.99% = defect AP 	||	score_threhold=0.5 : F1=0.85 ; Recall=81.39% ; Precision=88.26%
+
+s_spp
+90.56% = defect AP 	||	score_threhold=0.5 : F1=0.84 ; Recall=81.82% ; Precision=86.30%
+90.89% = defect AP 	||	score_threhold=0.5 : F1=0.86 ; Recall=83.12% ; Precision=89.72%
+

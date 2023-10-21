@@ -1,0 +1,18 @@
+model name      : Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+raw
+0.845356957912445 seconds, 1.182932240209433FPS, @batch_size 1
+0.8426502871513367 seconds, 1.1867319281176532FPS, @batch_size 1
+0.8633319091796875 seconds, 1.1583030690365315FPS, @batch_size 1
+s_spp
+0.7951857829093933 seconds, 1.2575677552247486FPS, @batch_size 1
+0.7669759631156922 seconds, 1.3038218250513256FPS, @batch_size 1
+0.7582917952537537 seconds, 1.318753554052845FPS, @batch_size 1
+0.7642005729675293 seconds, 1.3085569880127397FPS, @batch_size 1
+
+model name	: AMD Ryzen 5 6600H with Radeon Graphics
+raw
+0.4683912897109985 seconds, 2.134967113963645FPS, @batch_size 1
+s_spp
+0.4121316385269165 seconds, 2.4264092016189376FPS, @batch_size 1
+
+

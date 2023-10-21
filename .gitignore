@@ -1,0 +1,8 @@
+.idea/
+model_data/*
+2007_train.txt
+2007_val.txt
+logs/*
+__pycache__/
+map_out/
+
