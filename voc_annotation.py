@@ -46,20 +46,22 @@ def convert_annotation(year, image_id, list_file):
     in_file = open(os.path.join(VOCdevkit_path, 'VOC%s/Annotations/%s.xml'%(year, image_id)), encoding='utf-8')
     tree=ET.parse(in_file)
     root = tree.getroot()
-
     for obj in root.iter('object'):
-        difficult = 0 
+        difficult = 0
         if obj.find('difficult')!=None:
             difficult = obj.find('difficult').text
-        cls = obj.find('name').text
-        if cls not in classes or int(difficult)==1:
-            continue
-        cls_id = classes.index(cls)
-        xmlbox = obj.find('bndbox')
-        b = (int(float(xmlbox.find('xmin').text)), int(float(xmlbox.find('ymin').text)), int(float(xmlbox.find('xmax').text)), int(float(xmlbox.find('ymax').text)))
-        list_file.write(" " + ",".join([str(a) for a in b]) + ',' + str(cls_id))
-        
-        nums[classes.index(cls)] = nums[classes.index(cls)] + 1
+        for cls_name in classes:
+            if obj.find('Defect').find(cls_name).text == "1":
+                cls = cls_name
+                print(cls)
+                if cls not in classes or int(difficult)==1:
+                    continue
+                cls_id = classes.index(cls)
+                xmlbox = obj.find('bndbox')
+                b = (int(float(xmlbox.find('xmin').text)), int(float(xmlbox.find('ymin').text)), int(float(xmlbox.find('xmax').text)), int(float(xmlbox.find('ymax').text)))
+                list_file.write(" " + ",".join([str(a) for a in b]) + ',' + str(cls_id))
+
+                nums[classes.index(cls)] = nums[classes.index(cls)] + 1
         
 if __name__ == "__main__":
     random.seed(0)
@@ -115,7 +117,6 @@ if __name__ == "__main__":
             list_file = open('%s_%s.txt'%(year, image_set), 'w', encoding='utf-8')
             for image_id in image_ids:
                 list_file.write('%s/VOC%s/JPEGImages/%s.png'%(os.path.abspath(VOCdevkit_path), year, image_id))
-
                 convert_annotation(year, image_id, list_file)
                 list_file.write('\n')
             photo_nums[type_index] = len(image_ids)
