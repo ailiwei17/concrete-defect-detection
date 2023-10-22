@@ -46,7 +46,9 @@ def convert_annotation(year, image_id, list_file):
     in_file = open(os.path.join(VOCdevkit_path, 'VOC%s/Annotations/%s.xml'%(year, image_id)), encoding='utf-8')
     tree=ET.parse(in_file)
     root = tree.getroot()
-    for obj in root.iter('object'):
+
+
+
         difficult = 0
         if obj.find('difficult')!=None:
             difficult = obj.find('difficult').text

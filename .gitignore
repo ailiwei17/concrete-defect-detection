@@ -5,4 +5,4 @@ model_data/*
 logs/*
 __pycache__/
 map_out/
-
+kitti_result/*
